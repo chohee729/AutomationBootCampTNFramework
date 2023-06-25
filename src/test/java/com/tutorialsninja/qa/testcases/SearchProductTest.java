@@ -29,7 +29,7 @@ public class SearchProductTest extends TestBase {
 		homepage.enterProductNameInSearchBox(dataProp.getProperty("validProduct"));
 		homepage.searchButton();
 		SearchPage searchpage = new SearchPage (driver);
-		softassert.assertFalse(searchpage.displayStatusValidProduct()); 
+		softassert.assertTrue(searchpage.displayStatusValidProduct()); 
 		softassert.assertAll();
 	}
 	@Test(priority=2)
@@ -42,7 +42,7 @@ public class SearchProductTest extends TestBase {
 		softassert.assertAll(); 
 		
 	}
-	@Test(priority=3, dependsOnMethods = "searchWithValidProduct")
+	@Test(priority=3)
 	public void searchWithNoProduct() {
 		HomePage homepage = new HomePage(driver);
 		homepage.searchButton();
